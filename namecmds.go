@@ -6,13 +6,7 @@
 // NOTE: This file is intended to house the RPC commands that are supported by
 // a name lookup client.
 
-package ncbtcjson
-
-// Must use the btcsuite fork of btcd for this import; using the namecoin fork
-// will cause unregistered command errors.
-import (
-	"github.com/btcsuite/btcd/btcjson"
-)
+package minincbtcjson
 
 // Encoding represents an encoding for name identifiers and values.
 type Encoding string
@@ -96,12 +90,4 @@ func NewNameScanCmd(start string, count *uint32, options *NameScanOptions) *Name
 		Count:   count,
 		Options: options,
 	}
-}
-
-func init() {
-	// No special flags for commands in this file.
-	flags := btcjson.UsageFlag(0)
-
-	btcjson.MustRegisterCmd("name_show", (*NameShowCmd)(nil), flags)
-	btcjson.MustRegisterCmd("name_scan", (*NameScanCmd)(nil), flags)
 }

@@ -1,3 +1,3 @@
-# ncbtcjson
+# minincbtcjson
 
-ncbtcjson is a companion package to [Conformal's btcjson](https://github.com/btcsuite/btcd/tree/master/btcjson), which adds Namecoin-specific RPC methods.
+minincbtcjson is a fork of [ncbtcjson](https://github.com/namecoin/ncbtcjson) that eliminates the dependency on btcd. This may reduce binary size and attack surface.
