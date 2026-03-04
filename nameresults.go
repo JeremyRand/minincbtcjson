@@ -5,6 +5,9 @@
 
 package minincbtcjson
 
+// TODO: replace this with a more specific error code once Namecoin Core does so.
+const ErrRPCWallet int = -4
+
 // NameShowResult models the data from the name_show command.
 type NameShowResult struct {
 	Name          string   `json:"name"`
