@@ -33,25 +33,6 @@ type NameShowCmd struct {
 	Options *NameShowOptions
 }
 
-// NewNameShowCmd returns a new instance which can be used to issue a
-// name_show JSON-RPC command.
-//
-// The parameters which are pointers indicate they are optional.  Passing nil
-// for optional parameters will use the default value.
-func NewNameShowCmd(name string, options *NameShowOptions) *NameShowCmd {
-	// Don't send the Options parameter if it's empty.  This saves some
-	// space on the wire, and also ensures compatibility with old Namecoin
-	// Core versions that don't support the Options parameter.
-	if options != nil && *options == (NameShowOptions{}) {
-		options = nil
-	}
-
-	return &NameShowCmd{
-		Name:    name,
-		Options: options,
-	}
-}
-
 // NameScanOptions represents the optional options struct provided with a
 // NameScanCmd command.
 type NameScanOptions struct {
@@ -70,24 +51,4 @@ type NameScanCmd struct {
 	Start   string
 	Count   *uint32
 	Options *NameScanOptions
-}
-
-// NewNameScanCmd returns a new instance which can be used to issue a
-// name_scan JSON-RPC command.
-//
-// The parameters which are pointers indicate they are optional.  Passing nil
-// for optional parameters will use the default value.
-func NewNameScanCmd(start string, count *uint32, options *NameScanOptions) *NameScanCmd {
-	// Don't send the Options parameter if it's empty.  This saves some
-	// space on the wire, and also ensures compatibility with old Namecoin
-	// Core versions that don't support the Options parameter.
-	if options != nil && *options == (NameScanOptions{}) {
-		options = nil
-	}
-
-	return &NameScanCmd{
-		Start:   start,
-		Count:   count,
-		Options: options,
-	}
 }
